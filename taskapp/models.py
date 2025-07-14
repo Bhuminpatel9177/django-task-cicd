@@ -23,7 +23,7 @@ class CustomUser(AbstractUser):
     otp= models.CharField(max_length=6, null=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username'] 
 
 class ExtraField(models.Model):
     customuser = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
