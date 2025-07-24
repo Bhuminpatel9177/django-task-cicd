@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'mytask.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'dj_db_conn_pool.backends.postgresql',
-        'NAME': 'django_task', 
+        'NAME': 'djangotask', 
         'USER': 'taskadmin',
         'PASSWORD': 'taskadmin@123',
         'HOST': 'localhost', 
