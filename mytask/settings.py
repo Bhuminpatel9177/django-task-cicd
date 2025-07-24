@@ -82,33 +82,35 @@ WSGI_APPLICATION = 'mytask.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mytask', 
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost', 
-        'PORT': '5432',
-    }
-}
-
+# Local Database
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'dj_db_conn_pool.backends.postgresql',
-#         'NAME': 'django_task', 
-#         'USER': 'taskadmin',
-#         'PASSWORD': 'taskadmin@123',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'mytask', 
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
 #         'HOST': 'localhost', 
 #         'PORT': '5432',
-#         'CONN_HEALTH_CHECKS': True,
-#         'POOL_OPTIONS': {
-#             'POOL_SIZE': 40,
-#             'MAX_OVERFLOW': 40,
-#             'RECYCLE': 500
-#         }
 #     }
 # }
+
+# Live Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'dj_db_conn_pool.backends.postgresql',
+        'NAME': 'django_task', 
+        'USER': 'taskadmin',
+        'PASSWORD': 'taskadmin@123',
+        'HOST': 'localhost', 
+        'PORT': '5432',
+        'CONN_HEALTH_CHECKS': True,
+        'POOL_OPTIONS': {
+            'POOL_SIZE': 40,
+            'MAX_OVERFLOW': 40,
+            'RECYCLE': 500
+        }
+    }
+}
 
 
 # Password validation
