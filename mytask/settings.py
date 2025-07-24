@@ -93,6 +93,23 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'dj_db_conn_pool.backends.postgresql',
+#         'NAME': 'django_task', 
+#         'USER': 'taskadmin',
+#         'PASSWORD': 'taskadmin@123',
+#         'HOST': 'localhost', 
+#         'PORT': '5432',
+#         'CONN_HEALTH_CHECKS': True,
+#         'POOL_OPTIONS': {
+#             'POOL_SIZE': 40,
+#             'MAX_OVERFLOW': 40,
+#             'RECYCLE': 500
+#         }
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
