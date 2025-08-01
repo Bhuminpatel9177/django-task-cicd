@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'mytask.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+}
 
 # Local Database
 # DATABASES = {
@@ -95,22 +95,22 @@ WSGI_APPLICATION = 'mytask.wsgi.application'
 # }
 
 # Live Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'dj_db_conn_pool.backends.postgresql',
-        'NAME': 'djangotask', 
-        'USER': 'taskadmin',
-        'PASSWORD': 'taskadmin@123',
-        'HOST': 'localhost', 
-        'PORT': '5432',
-        'CONN_HEALTH_CHECKS': True,
-        'POOL_OPTIONS': {
-            'POOL_SIZE': 40,
-            'MAX_OVERFLOW': 40,
-            'RECYCLE': 500
-        }
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'djangotask', 
+#        'USER': 'taskadmin',
+#        'PASSWORD': 'taskadmin@123',
+#        'HOST': '13.50.52.22', 
+#        'PORT': '5432',
+#        'CONN_HEALTH_CHECKS': True,
+#        'POOL_OPTIONS': {
+#            'POOL_SIZE': 40,
+#           'MAX_OVERFLOW': 40,
+#           'RECYCLE': 500
+#       }
+#   }
+#}
 
 
 # Password validation
