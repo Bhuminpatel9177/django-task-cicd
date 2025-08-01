@@ -1,26 +1,28 @@
-# Use a stable Python version
-FROM python:3.13
-
-# Set working directory inside container
+# Use official Python image as base
+FROM python:3.11-slim
+ 
+# Set working directory
 WORKDIR /app
-
+ 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ 
 # Install system dependencies
-RUN apt-get update && apt-get install -y python3-distutils python3-pip && rm -rf /var/lib/apt/lists/*
-
-# Upgrade pip
-RUN pip install --upgrade pip
-
-# Copy requirements.txt only if it exists
-COPY requirements.txt . 
-
-# Install dependencies only if requirements.txt exists
-RUN test -f requirements.txt && pip install -r requirements.txt || echo "Skipping pip install, no requirements.txt found"
-
-# Copy project files into the container
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+ 
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+ 
+# Copy project files
 COPY . .
-
-# Expose port 8000 for Django
+ 
+# Expose port
 EXPOSE 8000
-
+ 
 # Run migrations and start server
 CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
