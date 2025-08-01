@@ -1,32 +1,9 @@
-version: '3.11'
+version: '3.8'
 
 services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: djangotask
-      POSTGRES_USER: taskadmin
-      POSTGRES_PASSWORD: taskadmin@123
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      - DB_NAME=djangotask
-      - DB_USER=taskadmin
-      - DB_PASSWORD=taskadmin@123
-      - DB_HOST=db
-      - DB_PORT=5432
-
-volumes:
-  postgres_data:
+    volumes:
+      - .:/app
